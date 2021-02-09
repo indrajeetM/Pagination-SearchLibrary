@@ -1,0 +1,35 @@
+
+Updating the new url's in following files.
+1. index.html (L-11,L-34) 
+2. js/frontend.js (L-4)
+3. php/backend.php (L-4,L-7)
+3. pagination1.0/library1.0.js (L-226,L-228)
+
+New Changes
+#############
+File 	- php/backend.php
+Line 	- 48
+Update 	- Added New Key To Array
+-----------------------
+Line 	- 49
+Update	- Added New Value To Array
+-----------------------
+Line	- 101
+Update	- Converted Db name to Lower-case.
+-----------------------
+Line	- 102
+Update	- Removed Password From Connection
+-----------------------
+Line	- 198,199,200,201
+Update	- Changed Database Column Name To Camline Case (Similar To Table Columns)
+
+*****************************
+File 	- search_library/search.php
+Line	- 105,106,107,108
+Update	- Removed Old For Loop And Added If Conditions.
+-------------------------
+Line	- 110
+Update	- Replaced 'OR' with AND
+-------------------------
+Line	- 122
+Update 	- Replaced key name after where clause as search_col_mail added LIKE 			  instead of =

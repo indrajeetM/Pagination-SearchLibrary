@@ -101,11 +101,13 @@ class searching
                     if(!empty($expert_and_company))
                     {
                         $attachment=array();
-                        foreach ($expert_and_company as $key => $value) 
-                        {    
-                            array_push($attachment,''.$value_q['search_col_name'].' LIKE "%'.$value.'%"'); 
+                        
+                        array_push($attachment,''.$value_q['search_col_name'].' LIKE "%'.$expert_and_company[0].'%"'); 
+                        if(count($expert_and_company)>1){
+                            array_push($attachment,''.$value_q['search_col_mail'].' LIKE "%'.$input_new.'%"');    
                         }
-                        $append_string_in_sql=implode(' OR ', $attachment);
+                        
+                        $append_string_in_sql=implode(' AND ', $attachment);
                         $query='SELECT '.$value_q['get_colms'].' FROM '.$value_q['table_name'].' WHERE '.$append_string_in_sql.'';
                         array_push($query_array, $query);  
                     }
@@ -117,7 +119,7 @@ class searching
             {
                 if ($value_q['type']=='email') 
                 {   
-                    $query='SELECT '.$value_q['get_colms'].' FROM '.$value_q['table_name'].' WHERE '.$value_q['search_col_name'].'="'.$email.'"';
+                    $query='SELECT '.$value_q['get_colms'].' FROM '.$value_q['table_name'].' WHERE '.$value_q['search_col_mail'].'LIKE "%'.$email.'%"';
                     array_push($query_array, $query);
                     array_push($get_ids,$value_q['get_id']); 
                 }
